@@ -4,21 +4,22 @@
 #include "prime_generator.hpp"
 
 int main() {
-    const int BITS = 1000;
+    int bits; std::cin >> bits;
     PrimeGenerator *generator = new PrimeGenerator();
-    NTL::ZZ p = generator->get_prime(BITS);
-    NTL::ZZ q = generator->get_prime(BITS);
+    NTL::ZZ p = generator->get_prime(bits);
+    NTL::ZZ q = generator->get_prime(bits);
 
-    std::cout << p << '\n' << q << '\n';
+    std::cout << "first prime:  " << p << '\n';
+    std::cout << "second prime: " << q << '\n';
     NTL::ZZ tot = (p - 1) * (q - 1);
     
     NTL::ZZ e;
     do {
         e = RandomBnd(tot);
     } while (gcd(e, tot) != 1);
-    std::cout << e << '\n';
+    std::cout << "public key:  " << e << '\n';
 
     NTL::ZZ d = modinverse(e, tot);
-    std::cout << d << '\n';
+    std::cout << "private key: " << d << '\n';
     assert(d * e % tot == 1);
 }

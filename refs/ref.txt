@@ -1,0 +1,2 @@
+https://libntl.org/doc/tour.html
+https://cp-algorithms.com/algebra/primality_tests.html#fermat-primality-test

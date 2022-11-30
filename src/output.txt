@@ -1,0 +1,4 @@
+first prime:  29
+second prime: 23
+public key:  397
+private key: 45
